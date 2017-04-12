@@ -108,6 +108,7 @@ body {
   top: 25px;
   color: #fff;
   font-size: 3em;
+  z-index: 10;
 }
 .menu:hover,
 .menu:active,
@@ -119,6 +120,7 @@ body {
   position: fixed;
   left: 25px;
   bottom: 25px;
+  z-index: 10;
 }
 .social__item {
   color: #fff;
@@ -139,6 +141,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 10;
 }
 .right-link__item {
   margin-bottom: 40px;
@@ -169,6 +172,7 @@ body {
   color: #000;
   background: #fff;
   padding: 10px 15px;
+  z-index: 10;
 }
 .go-btn:before {
   color: #fff;
@@ -180,6 +184,7 @@ body {
 }
 .dots {
   position: fixed;
+  z-index: 10;
   left: 50px;
   top: 50%;
   margin-top: -100px;
@@ -200,6 +205,7 @@ body {
   background: #000;
   position: relative;
   color: #fff;
+  padding: 130px 0;
 }
 .why-we canvas {
   position: absolute;
@@ -212,4 +218,44 @@ body {
 .window {
   position: relative;
   z-index: 1;
+  width: 290px;
+  height: 380px;
+  border: 2px solid #fff;
+}
+.window__title {
+  text-transform: uppercase;
+  font-weight: normal;
+  position: absolute;
+  left: -60px;
+  top: 40px;
+  margin: 0;
+  background: #000000;
+}
+.window__about {
+  position: absolute;
+  bottom: 45px;
+  right: -45px;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 0;
+  background: #000000;
+}
+.window__about span {
+  font-weight: bold;
+}
+.year {
+  position: relative;
+  z-index: 1;
+  margin-left: 20%;
+}
+.year .number {
+  position: absolute;
+  left: -70px;
+  top: -15px;
+  font-size: 8em;
+  font-weight: bold;
+}
+.year .h1 {
+  margin: 0;
+  text-transform: uppercase;
 }

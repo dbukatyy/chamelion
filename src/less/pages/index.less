@@ -33,6 +33,7 @@ body {
 	top: 25px;
 	color: @c-white;
 	font-size: 3em;
+	z-index: 10;
 
 	&:hover,
 	&:active,
@@ -46,6 +47,7 @@ body {
 	position: fixed;
 	left: 25px;
 	bottom: 25px;
+	z-index: 10;
 
 	&__item {
 		color: @c-white;
@@ -61,6 +63,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	z-index: 10;
 
 	&__item {
 		margin-bottom: 40px;
@@ -95,6 +98,7 @@ body {
 	color: @c-black;
 	background: @c-white;
 	padding: 10px 15px;
+	z-index: 10;
 
 	&:before {
 		color: @c-white;
@@ -108,6 +112,7 @@ body {
 
 .dots {
 	position: fixed;
+	z-index: 10;
 	left: 50px;
 	top: 50%;
 	margin-top: -100px;
@@ -132,6 +137,7 @@ body {
 	background: @c-black;
 	position: relative;
 	color: @c-white;
+	padding: 130px 0;
 
 	canvas {
 		position: absolute;
@@ -146,4 +152,53 @@ body {
 .window {
 	position: relative;
 	z-index: 1;
-}
+	width: 290px;
+	height: 380px;
+	border: 2px solid @c-white;
+
+	&__title {
+		text-transform: uppercase;
+		font-weight: normal;
+		position: absolute;
+		left: -60px;
+		top: 40px;
+		margin: 0;
+		background: rgba(0,0,0,1);
+	}
+
+	&__about {
+		position: absolute;
+		bottom: 45px;
+		right: -45px;
+		text-transform: uppercase;
+		text-align: right;
+		margin: 0;
+		background: rgba(0,0,0,1);
+
+		span {
+			font-weight: bold;
+		}
+	}
+} 
+
+.year {
+	position: relative;
+	z-index: 1;
+	margin-left: 20%;
+
+	.number {
+		position: absolute;
+		left: -70px;
+		top: -15px;
+		font-size: 8em;
+		font-weight: bold;
+	}
+
+	.h1 {
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	&__about {
+	}
+} 
