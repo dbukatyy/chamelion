@@ -80,10 +80,24 @@ h5,
 .icon-ctrl:before {
   content: "\ea50";
 }
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 20px;
+  min-width: 170px;
+  border: 1px solid #c0b378;
+  display: inline-block;
+}
+.btn i {
+  vertical-align: middle;
+  margin-left: 10px;
+}
 body {
   min-height: 100%;
   font-size: 16px;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 .first {
   position: relative;
@@ -412,6 +426,7 @@ canvas {
 .our-works__subtitle {
   width: 50%;
   margin-left: 45%;
+  font-weight: 100;
 }
 .works {
   z-index: 1;
@@ -447,4 +462,103 @@ canvas {
 .works__link {
   text-decoration: none;
   color: #ccc;
+  position: relative;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.works__link:before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -15px;
+  margin: auto;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  opacity: 0;
+}
+.works__link:hover,
+.works__link.active {
+  color: #fff;
+}
+.works__link:hover:before,
+.works__link.active:before {
+  opacity: 1;
+}
+.examples {
+  padding: 100px 0 ;
+}
+.example {
+  position: relative;
+}
+.example:nth-of-type(2n) {
+  margin-left: 50%;
+}
+.example:nth-of-type(2n) .example__about {
+  z-index: 1;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  right: auto;
+  text-align: right;
+}
+.example:nth-of-type(2n) .example__img {
+  margin-right: 0;
+  margin-left: auto;
+}
+.example__img {
+  width: 370px;
+  height: 540px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.example__img img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.example__about {
+  z-index: 1;
+  position: absolute;
+  top: 90px;
+  right: 20px;
+}
+.example__title {
+  font-size: 2em;
+  position: relative;
+}
+.example__title span {
+  font-weight: bold;
+}
+.example__title:after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 20%;
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  right: 0;
+  background: #fff;
+}
+.example__info {
+  margin-left: 30%;
+}
+.example .btn {
+  margin-top: 30%;
+  margin-left: 18%;
+}
+.cottages {
+  display: none;
 }

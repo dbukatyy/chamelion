@@ -2,6 +2,7 @@ body {
 	min-height: 100%;
 	font-size: @base-font;
 	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 // first
@@ -365,6 +366,7 @@ canvas {
 	&__subtitle {
 		width: 50%;
 		margin-left: 45%;
+		font-weight: 100;
 	}
 }
 
@@ -399,5 +401,115 @@ canvas {
 	&__link {
 		text-decoration: none;
 		color: @c-gray;
+		position: relative;
+		transition: all .3s;
+			
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 5px;
+			height: 5px;
+			border: 2px solid @c-white;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -15px;
+			margin: auto;
+			transition: all .3s;
+			opacity: 0;
+		}
+
+		&:hover,
+		&.active {
+			color: @c-white;
+
+			&:before {
+				opacity: 1;
+			}
+		}
 	}
+}
+
+.examples {
+	padding: 100px 0 ;
+}
+.example {
+	position: relative;
+	
+	&:nth-of-type(2n) {
+		margin-left: 50%;
+
+		.example__about {
+			z-index: 1;
+			position: absolute;
+			top: 90px;
+			left: 0px;
+			right: auto;
+			text-align: right;
+		}
+
+		.example__img {
+			margin-right: 0;
+			margin-left: auto;
+		}
+	}
+
+	&__img {
+		width: 370px;
+		height: 540px;
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+		img {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+
+	&__about {
+		z-index: 1;
+		position: absolute;
+		top: 90px;
+		right: 20px;
+	}
+
+	&__title {
+		font-size: 2em;
+		position: relative;
+		span {
+			font-weight: bold;
+		}
+		
+		&:after {
+			content: '';
+			display: inline-block;
+			height: 2px;
+			width: 20%;
+			position: absolute;
+			bottom: -10px;
+			left: 20px;
+			right: 0;
+			background: @c-white;
+		}
+	}
+
+	&__info {
+		margin-left: 30%;
+	}
+
+	.btn {
+		margin-top: 30%;
+		margin-left: 18%;
+	}
+}
+
+.cottages {
+	display: none;
 }

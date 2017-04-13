@@ -34,6 +34,17 @@ jQuery(document).ready(function () {
 
     particlesJS.load('our-works', 'js/particlesjs.json', function () {});
 
+    $('.works__link').on('click', function (e) {
+        var sectionClass = $(e.target).data('section'),
+            targetSection = $('.examples').find('.' + sectionClass);
+
+        $(e.target).addClass('active');
+        $(e.target).closest('.works__item').siblings('.works__item').find('.works__link').removeClass('active');
+
+        targetSection.siblings('.row').hide(1000);
+        targetSection.show(700);
+    });
+
     $('#first').scrollex({
 
         mode: 'middle',
@@ -97,13 +108,20 @@ jQuery(document).ready(function () {
 
     $('#our-works').scrollex({
 
-        mode: 'middle',
+        mode: 'bottom',
 
         enter: function enter() {
 
             var _self = $(this);
 
             dotToggle(_self);
+        },
+        scroll: function scroll(progress) {
+
+            $(".example__about:visible").each(function (key, value) {
+
+                $(this).css('transform', 'translateY(' + (-progress + .25 * (key + 1)) * 1000 / (key + 1) + 'px)');
+            });
         }
     });
 });
