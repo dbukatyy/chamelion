@@ -34,6 +34,8 @@ jQuery(document).ready(function () {
 
     particlesJS.load('our-works', 'js/particlesjs.json', function () {});
 
+    particlesJS.load('сertificate', 'js/particlesjs.json', function () {});
+
     $('.works__link').on('click', function (e) {
         var sectionClass = $(e.target).data('section'),
             targetSection = $('.examples').find('.' + sectionClass);
@@ -123,5 +125,46 @@ jQuery(document).ready(function () {
                 $(this).css('transform', 'translateY(' + (-progress + .25 * (key + 1)) * 1000 / (key + 1) + 'px)');
             });
         }
+    });
+
+    $('#сertificate').scrollex({
+
+        mode: 'middle',
+
+        enter: function enter() {
+
+            var _self = $(this);
+
+            dotToggle(_self);
+
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').addClass('reverse');
+            $(this).css('background', '#fff');
+        },
+        scroll: function scroll(progress) {},
+        leave: function leave() {
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').removeClass('reverse');
+            $(this).css('background', '#000');
+        }
+    });
+
+    $('.certificates').slick({
+        prevArrow: '.certificates__prev',
+        nextArrow: '.certificates__next',
+        arrows: true,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true,
+        infinite: true
+    });
+
+    $('.partners__slider').slick({
+        arrows: false,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1
     });
 });

@@ -33,6 +33,9 @@ jQuery(document).ready(function () {
     particlesJS.load('our-works', 'js/particlesjs.json', function() {
     });
 
+     particlesJS.load('сertificate', 'js/particlesjs.json', function() {
+    });
+
     $('.works__link').on('click', e => {
         const sectionClass = $(e.target).data('section'),
               targetSection = $('.examples').find(`.${sectionClass}`);
@@ -128,6 +131,49 @@ jQuery(document).ready(function () {
            });
         }
     });
+
+     $('#сertificate').scrollex({
+ 
+        mode: 'middle',
+    
+        enter: function() {
+
+            var _self = $(this);
+
+            dotToggle(_self);
+
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').addClass('reverse');
+            $(this).css('background' , '#fff');
+        },
+        scroll: function(progress) {
+
+        },
+         leave: function() {
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').removeClass('reverse');
+            $(this).css('background' , '#000');
+        }
+    });
+
+     $('.certificates').slick({
+        prevArrow: '.certificates__prev',
+        nextArrow: '.certificates__next',
+        arrows: true,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true,
+        infinite: true
+     });
+
+     $('.partners__slider').slick({
+        arrows: false,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1
+     });
 
 
 });
