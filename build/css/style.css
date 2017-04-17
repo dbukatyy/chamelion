@@ -95,6 +95,9 @@ h5,
   vertical-align: middle;
   margin-left: 10px;
 }
+.btn_revert {
+  color: #000;
+}
 body {
   min-height: 100%;
   font-size: 16px;
@@ -329,6 +332,27 @@ canvas {
   -webkit-transition: all .3s .6s;
   transition: all .3s .6s;
 }
+.window_black {
+  width: 240px;
+}
+.window_black .window__title {
+  -webkit-transition: all .1s;
+  transition: all .1s;
+  background: transparent;
+  text-align: right;
+  right: auto;
+  left: 50px;
+}
+.window_black .window__about {
+  -webkit-transition: all .1s;
+  transition: all .1s;
+  background: transparent;
+  right: auto;
+  left: -45px;
+}
+.window_black .window__line {
+  background: #000;
+}
 .window.active .window__top {
   width: 100%;
 }
@@ -443,6 +467,37 @@ canvas {
 }
 .extend-fact__number {
   font-weight: bold;
+}
+.we-work {
+  position: relative;
+  padding: 150px 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.we-work__title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20%;
+}
+.we-work__title span {
+  font-weight: bold;
+}
+.steps {
+  padding-top: 170px;
+}
+.step__title {
+  text-transform: uppercase;
+  position: relative;
+}
+.step__number {
+  position: absolute;
+  left: -50px;
+  top: -15px;
+  font-size: 3.5em;
+}
+.step__about {
+  width: 80%;
+  padding-left: 20px;
 }
 .our-works {
   position: relative;
@@ -683,6 +738,11 @@ canvas {
 .form__field:active + label {
   opacity: .3;
 }
+.form_reverse .form__field {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  color: #000;
+}
 .certificate {
   position: relative;
   padding: 100px 0;
@@ -762,4 +822,96 @@ canvas {
 .partners__about {
   width: 40%;
   margin: 0 auto 100px;
+}
+.service {
+  position: relative;
+  padding: 100px 0;
+}
+.service__header {
+  position: absolute;
+  width: 10%;
+  left: 46%;
+  top: 20%;
+  text-transform: uppercase;
+}
+.service__body {
+  position: relative;
+}
+.service__next {
+  position: absolute;
+  z-index: 10;
+  left: 44%;
+  top: 75%;
+  display: inline-block;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  color: #000;
+  font-size: 3em;
+}
+.services {
+  position: relative;
+  z-index: 10;
+}
+.services__img {
+  text-align: center;
+}
+.services__img img {
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.services__about {
+  color: #000;
+}
+.services__item:active,
+.services__item:focus {
+  outline: none;
+}
+.services__item .row {
+  margin: 0;
+}
+.services__title {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.services-param {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.services-param__name {
+  font-weight: bold;
+  margin: 0;
+}
+.services-param__about {
+  width: 50%;
+  margin: 5px 0;
+  text-align: left;
+}
+.stage {
+  padding-left: 35px;
+  margin-bottom: 35px;
+}
+.stage__title {
+  position: relative;
+  text-transform: uppercase;
+}
+.stage__title .h5 {
+  font-weight: bold;
+}
+.stage__number {
+  position: absolute;
+  left: -35px;
+  top: -10px;
+  font-weight: bold;
+}
+.stage__about {
+  padding-left: 10px;
 }

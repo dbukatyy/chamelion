@@ -32,9 +32,13 @@ jQuery(document).ready(function () {
 
     particlesJS.load('why-we', 'js/particlesjs.json', function () {});
 
+    particlesJS.load('we-work', 'js/particlesjs.json', function () {});
+
     particlesJS.load('our-works', 'js/particlesjs.json', function () {});
 
     particlesJS.load('сertificate', 'js/particlesjs.json', function () {});
+
+    particlesJS.load('service', 'js/particlesjs.json', function () {});
 
     $('.works__link').on('click', function (e) {
         var sectionClass = $(e.target).data('section'),
@@ -84,7 +88,7 @@ jQuery(document).ready(function () {
             dotToggle(_self);
 
             var time = 1;
-            $('.window').addClass('active');
+            $(this).find('.window').addClass('active');
 
             $('#facts').each(function () {
                 $('span').each(function () {
@@ -104,7 +108,45 @@ jQuery(document).ready(function () {
             });
         },
         leave: function leave() {
-            $('.window').removeClass('active');
+            $(this).find('.window').removeClass('active');
+        }
+    });
+
+    $('#we-work').scrollex({
+
+        mode: 'middle',
+        scroll: function scroll(progress) {
+
+            var customProgress = (-progress + .545) * 200,
+                customProgress2 = (-progress + .545) * 300,
+                customProgress3 = (-progress + .545) * 400,
+                customProgress4 = (-progress + .545) * 500;
+
+            $(".step").eq(1).css('transform', 'translateY(' + customProgress + 'px)');
+            $(".step").eq(2).css('transform', 'translateY(' + customProgress2 + 'px)');
+            $(".step").eq(3).css('transform', 'translateY(' + customProgress3 + 'px)');
+            $(".step").eq(4).css('transform', 'translateY(' + customProgress4 + 'px)');
+
+            // console.log(progress + 0.545);
+        },
+        enter: function enter() {
+
+            var _self = $(this);
+
+            dotToggle(_self);
+
+            _self.css('background', '#fff');
+            _self.find('.window__about,.window__title').css('background', '#fff');
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').addClass('reverse');
+            _self.find('.window').addClass('active');
+        },
+        leave: function leave() {
+            var _self = $(this);
+
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').removeClass('reverse');
+            _self.css('background', '#000');
+            _self.find('.window__about,.window__title').css('background', 'transparent');
+            _self.find('.window').removeClass('active');
         }
     });
 
@@ -147,6 +189,23 @@ jQuery(document).ready(function () {
         }
     });
 
+    $('#service').scrollex({
+
+        mode: 'middle',
+
+        enter: function enter() {
+
+            var _self = $(this);
+
+            dotToggle(_self);
+
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').addClass('reverse');
+            $(this).css('background', '#fff');
+        },
+        scroll: function scroll(progress) {},
+        leave: function leave() {}
+    });
+
     $('.certificates').slick({
         prevArrow: '.certificates__prev',
         nextArrow: '.certificates__next',
@@ -166,5 +225,16 @@ jQuery(document).ready(function () {
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1
+    });
+
+    $('.services').slick({
+        nextArrow: '.service__next',
+        prevArrow: '.service__prev',
+        arrows: true,
+        // dots: true,
+        // autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true
+        // infinite: true
     });
 });
