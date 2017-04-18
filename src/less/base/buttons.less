@@ -8,6 +8,7 @@
 	min-width: 170px;
 	border: 1px solid @c-gold;
 	display: inline-block;
+	transition: all .3s;
 
 	i {
 		vertical-align: middle;
@@ -16,5 +17,10 @@
 
 	&_revert {
 		color: @c-black;
+	}
+
+	&:hover {
+		background: @c-gold;
+		// color: @c-white;
 	}
 }

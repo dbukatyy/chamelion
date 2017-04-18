@@ -26,7 +26,23 @@ jQuery(document).ready(function () {
             playVideo();
         } 
     });
-    
+
+    $('.go-btn').on('click', e => {
+
+        if ( $(e.target).hasClass('up'))  {
+
+            $('html, body').animate({
+                scrollTop: 0
+             },1000);
+        } else {
+
+            $('html, body').animate({
+                    scrollTop: $('#first').next('section').offset().top + 100
+            },1500);
+        }
+
+    });
+
     particlesJS.load('why-we', 'js/particlesjs.json', function() {
     });
 
@@ -41,6 +57,10 @@ jQuery(document).ready(function () {
 
     particlesJS.load('service', 'js/particlesjs.json', function() {
     });
+
+    particlesJS.load('contacts', 'js/particlesjs.json', function() {
+    });
+
 
     $('.works__link').on('click', e => {
         const sectionClass = $(e.target).data('section'),
@@ -59,9 +79,11 @@ jQuery(document).ready(function () {
     
         enter: function() {
 
-            var _self = $(this);
+            const _self = $(this);
 
             dotToggle(_self);
+
+            $('.go-btn').text('далее').removeClass('up');
         }
     });
              
@@ -84,15 +106,14 @@ jQuery(document).ready(function () {
                 $( ".extend-fact" ).eq(1).css('top',customProgress);
 
           
-            // console.log(progress + 0.545);
         },
         enter: function() {
 
-            var _self = $(this);
+            const _self = $(this),
+                  time = 1;
 
             dotToggle(_self);
 
-            var time = 1;
             $(this).find('.window').addClass('active');
 
             $('#facts').each(function(){
@@ -113,6 +134,8 @@ jQuery(document).ready(function () {
                 },step);
               });
             });
+
+            $('.go-btn').text('назад').addClass('up');
         },
         leave: function() {
            $(this).find('.window').removeClass('active');
@@ -168,6 +191,7 @@ jQuery(document).ready(function () {
             var _self = $(this);
 
             dotToggle(_self);
+            $('#сertificate').css('background' , '#000');
         },
         scroll: function(progress) {
 
@@ -196,9 +220,9 @@ jQuery(document).ready(function () {
         },
          leave: function() {
             $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').removeClass('reverse');
-            $(this).css('background' , '#000');
         }
     });
+
 
      $('#service').scrollex({
  
@@ -214,6 +238,40 @@ jQuery(document).ready(function () {
             $(this).css('background' , '#fff');
         },
         scroll: function(progress) {
+             const customProgress = (-progress + .545) * 300,
+                  customProgress2 = (-progress + .545) * 400,
+                  customProgress3 = (-progress + .545) * 400,
+                  customProgress4 = (-progress + .545) * 500;
+           
+
+                $( ".services__img:visible" ).css('transform', 'translateY(' + customProgress2 + 'px)');
+                $( ".service__header" ).css('transform', 'translateY(-' + customProgress + 'px)');
+        },
+         leave: function() {
+        }
+    });
+
+
+     $('#contacts').scrollex({
+ 
+        mode: 'middle',
+    
+        enter: function() {
+
+            var _self = $(this);
+
+            dotToggle(_self);
+
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').addClass('reverse');
+        },
+        scroll: function(progress) {
+
+            $( ".contact" ).each( function( key, value ) {
+
+                $(this).css('transform', 'translateY(' + (-progress + .25)*250+ 'px)');
+           });
+
+            $('.contacts__title').css('transform', 'translateY(-' + (-progress + .25)*230+ 'px)');
 
         },
          leave: function() {
@@ -251,7 +309,6 @@ jQuery(document).ready(function () {
         fade: true
         // infinite: true
      });
-
 
 });
 

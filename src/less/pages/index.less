@@ -111,6 +111,7 @@ body {
 	background: @c-white;
 	padding: 10px 15px;
 	z-index: 10;
+	transition: all .3s;
 
 	&:before {
 		color: @c-white;
@@ -120,7 +121,11 @@ body {
 		margin: auto;
 		font-size: 2.5em;
 	}
-	transition: all .3s;
+	&.up {
+		&:before {
+			transform: rotate(180deg);
+		}		
+	}
 	&.reverse {
 		color: @c-white;
 		background: @c-black;
@@ -663,6 +668,11 @@ canvas {
 			margin-top: -16px;
 			transition: all .3s;
 		}
+
+		&_full {
+			text-align: center;
+			margin: 30px 0;
+		}
 	}
 
 	&__field {
@@ -671,7 +681,7 @@ canvas {
 		border-top: 1px solid @c-white;
 		border-bottom: 1px solid @c-white;
 		width: 90%;
-		padding: 10px 10px 10px 40px;
+		padding: 10px 10px 10px 50px;
 		box-sizing: border-box;	
 		color: @c-white;
 		line-height: 30px;
@@ -701,7 +711,7 @@ canvas {
 .certificate {
 	position: relative;
 	padding: 100px 0;
-	background: @c-black;
+	// background: @c-black;
 	transition: all 1.5s;
 
 	&__title {
@@ -891,3 +901,90 @@ canvas {
  		padding-left: 10px;
  	}
  }
+
+ // contacts
+ .contacts {
+ 	position: relative;
+ 	padding: 100px 0;
+ 	&__title {
+ 		text-transform: uppercase;
+ 		font-weight: normal;
+ 		font-size: 2.5em;
+ 		margin: 0;
+ 	}
+ }
+
+ .contact {
+ 	padding-left: 5%;
+ 	position: relative;
+ 	z-index: 10;
+ 	.fn {
+ 		display: none;
+ 	}
+
+ 	a {
+ 		display: block;
+ 		line-height: 1.5em;
+ 		text-decoration: none;
+ 		color: @c-black;
+ 	}
+
+ 	&__title {
+ 		font-weight: bold;
+
+ 		&:before {
+ 			content: '';
+ 			width: 5px;
+ 			height: 5px;
+ 			display: inline-block;
+ 			border: 3px solid @c-black;
+ 			border-radius: 50%;
+ 			margin-right: 5px;
+ 		}
+ 	}
+ }
+
+ .map {
+ 	position: relative;
+ 	z-index: 10;
+ 	height: 350px;
+ 	text-align: center;
+ 	width: 60%;
+ 	margin: 60px auto;
+
+ 	iframe {
+ 		height: 100%;
+ 		width: 100%;
+ 	}
+
+ 	&:after {
+ 		content: '';
+ 		display: inline-block;
+ 		position: absolute;
+ 		top: 0;
+ 		bottom: 0;
+ 		left: 0;
+ 		right: 0;
+ 		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(250,250,250,0)), color-stop(12%, rgba(249,249,249,0)), color-stop(52%, rgba(245,245,245,0.66)), color-stop(73%, rgba(255,255,255,1)));
+		background: -webkit-radial-gradient(center, ellipse cover, rgba(250,250,250,0) 0%, rgba(249,249,249,0) 12%, rgba(245,245,245,0.66) 52%, rgba(255,255,255,1) 70%);
+		pointer-events: none;
+ 	}
+ }
+
+.quest {
+	text-align: center;
+	margin: 100px 0;
+
+	&__header {
+		margin-bottom: 80px;
+	}
+	
+	.btn {
+		position: relative;
+		z-index: 10;
+
+		&:nth-of-type(2) {
+			margin: 0 10px;
+		}
+	}
+}

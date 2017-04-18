@@ -90,6 +90,8 @@ h5,
   min-width: 170px;
   border: 1px solid #c0b378;
   display: inline-block;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 .btn i {
   vertical-align: middle;
@@ -97,6 +99,9 @@ h5,
 }
 .btn_revert {
   color: #000;
+}
+.btn:hover {
+  background: #c0b378;
 }
 body {
   min-height: 100%;
@@ -216,6 +221,10 @@ body {
   top: 0;
   margin: auto;
   font-size: 2.5em;
+}
+.go-btn.up:before {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .go-btn.reverse {
   color: #fff;
@@ -719,13 +728,17 @@ canvas {
   -webkit-transition: all .3s;
   transition: all .3s;
 }
+.form__item_full {
+  text-align: center;
+  margin: 30px 0;
+}
 .form__field {
   background: none;
   border: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   width: 90%;
-  padding: 10px 10px 10px 40px;
+  padding: 10px 10px 10px 50px;
   box-sizing: border-box;
   color: #fff;
   line-height: 30px;
@@ -746,7 +759,6 @@ canvas {
 .certificate {
   position: relative;
   padding: 100px 0;
-  background: #000;
   -webkit-transition: all 1.5s;
   transition: all 1.5s;
 }
@@ -914,4 +926,78 @@ canvas {
 }
 .stage__about {
   padding-left: 10px;
+}
+.contacts {
+  position: relative;
+  padding: 100px 0;
+}
+.contacts__title {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 2.5em;
+  margin: 0;
+}
+.contact {
+  padding-left: 5%;
+  position: relative;
+  z-index: 10;
+}
+.contact .fn {
+  display: none;
+}
+.contact a {
+  display: block;
+  line-height: 1.5em;
+  text-decoration: none;
+  color: #000;
+}
+.contact__title {
+  font-weight: bold;
+}
+.contact__title:before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  border: 3px solid #000;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.map {
+  position: relative;
+  z-index: 10;
+  height: 350px;
+  text-align: center;
+  width: 60%;
+  margin: 60px auto;
+}
+.map iframe {
+  height: 100%;
+  width: 100%;
+}
+.map:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(250, 250, 250, 0)), color-stop(12%, rgba(249, 249, 249, 0)), color-stop(52%, rgba(245, 245, 245, 0.66)), color-stop(73%, #ffffff));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(250, 250, 250, 0) 0%, rgba(249, 249, 249, 0) 12%, rgba(245, 245, 245, 0.66) 52%, #ffffff 70%);
+  pointer-events: none;
+}
+.quest {
+  text-align: center;
+  margin: 100px 0;
+}
+.quest__header {
+  margin-bottom: 80px;
+}
+.quest .btn {
+  position: relative;
+  z-index: 10;
+}
+.quest .btn:nth-of-type(2) {
+  margin: 0 10px;
 }

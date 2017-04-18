@@ -30,6 +30,21 @@ jQuery(document).ready(function () {
         }
     });
 
+    $('.go-btn').on('click', function (e) {
+
+        if ($(e.target).hasClass('up')) {
+
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+        } else {
+
+            $('html, body').animate({
+                scrollTop: $('#first').next('section').offset().top + 100
+            }, 1500);
+        }
+    });
+
     particlesJS.load('why-we', 'js/particlesjs.json', function () {});
 
     particlesJS.load('we-work', 'js/particlesjs.json', function () {});
@@ -39,6 +54,8 @@ jQuery(document).ready(function () {
     particlesJS.load('сertificate', 'js/particlesjs.json', function () {});
 
     particlesJS.load('service', 'js/particlesjs.json', function () {});
+
+    particlesJS.load('contacts', 'js/particlesjs.json', function () {});
 
     $('.works__link').on('click', function (e) {
         var sectionClass = $(e.target).data('section'),
@@ -60,6 +77,8 @@ jQuery(document).ready(function () {
             var _self = $(this);
 
             dotToggle(_self);
+
+            $('.go-btn').text('далее').removeClass('up');
         }
     });
 
@@ -78,16 +97,14 @@ jQuery(document).ready(function () {
 
             $(".extend-fact").eq(0).css('top', customProgress3);
             $(".extend-fact").eq(1).css('top', customProgress);
-
-            // console.log(progress + 0.545);
         },
         enter: function enter() {
 
-            var _self = $(this);
+            var _self = $(this),
+                time = 1;
 
             dotToggle(_self);
 
-            var time = 1;
             $(this).find('.window').addClass('active');
 
             $('#facts').each(function () {
@@ -106,6 +123,8 @@ jQuery(document).ready(function () {
                     }, step);
                 });
             });
+
+            $('.go-btn').text('назад').addClass('up');
         },
         leave: function leave() {
             $(this).find('.window').removeClass('active');
@@ -159,6 +178,7 @@ jQuery(document).ready(function () {
             var _self = $(this);
 
             dotToggle(_self);
+            $('#сertificate').css('background', '#000');
         },
         scroll: function scroll(progress) {
 
@@ -185,7 +205,6 @@ jQuery(document).ready(function () {
         scroll: function scroll(progress) {},
         leave: function leave() {
             $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').removeClass('reverse');
-            $(this).css('background', '#000');
         }
     });
 
@@ -202,7 +221,39 @@ jQuery(document).ready(function () {
             $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').addClass('reverse');
             $(this).css('background', '#fff');
         },
-        scroll: function scroll(progress) {},
+        scroll: function scroll(progress) {
+            var customProgress = (-progress + .545) * 300,
+                customProgress2 = (-progress + .545) * 400,
+                customProgress3 = (-progress + .545) * 400,
+                customProgress4 = (-progress + .545) * 500;
+
+            $(".services__img:visible").css('transform', 'translateY(' + customProgress2 + 'px)');
+            $(".service__header").css('transform', 'translateY(-' + customProgress + 'px)');
+        },
+        leave: function leave() {}
+    });
+
+    $('#contacts').scrollex({
+
+        mode: 'middle',
+
+        enter: function enter() {
+
+            var _self = $(this);
+
+            dotToggle(_self);
+
+            $('.menu, .social__item, .right-link__item, .go-btn, .dots__item ').addClass('reverse');
+        },
+        scroll: function scroll(progress) {
+
+            $(".contact").each(function (key, value) {
+
+                $(this).css('transform', 'translateY(' + (-progress + .25) * 250 + 'px)');
+            });
+
+            $('.contacts__title').css('transform', 'translateY(-' + (-progress + .25) * 230 + 'px)');
+        },
         leave: function leave() {}
     });
 
